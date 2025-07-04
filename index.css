@@ -1,0 +1,839 @@
+/* Tamaño del logo principal */
+#logo {
+    width: 380px;
+    height: 380px;
+    display: block;
+    margin-top: -100px;
+    margin-left: 0;
+}
+
+body{
+    max-width: 1600px;
+    border: 10px solid black;
+    box-sizing: border-box;
+}
+
+header{
+    height: 100px;
+    margin: 56px 12px 0px 150px;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Libre Franklin", sans-serif;
+}
+
+/* --- Menú hamburguesa personalizado y animado --- */
+.menu-toggle {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-right: 209px;
+    margin-top: 12px;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, forestgreen 60%, #92B4FA 100%);
+    border: 2px solid forestgreen;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,97,245,0.08);
+    cursor: pointer;
+    z-index: 1001;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.isotipo-menu {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    margin-left: 21px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+.menu-toggle:hover {
+    background: linear-gradient(135deg, forestgreen 0%, #F3F3F3  100%);
+    box-shadow: 0 4px 16px rgba(0,97,245,0.18);
+}
+.menu-toggle .bar {
+    width: 28px;
+    height: 4px;
+    background: linear-gradient(90deg,  goldenrod 0%, #F3F3F3 100%);
+    margin: 4px 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0,97,245,0.10);
+    transition: 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.menu-toggle.open .bar:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 7px) scaleX(1.1);
+    background: linear-gradient(90deg, forestgreen 0%, goldenrod 100%);
+}
+.menu-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0.2);
+}
+.menu-toggle.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px) scaleX(1.1);
+    background: linear-gradient(90deg, forestgreen 0%, goldenrod 100%);
+}
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: max-height 0.5s cubic-bezier(.68,-0.55,.27,1.55), background 0.3s;
+    background: none;
+}
+
+/* Menú hamburguesa SIEMPRE visible, menú solo al pasar el cursor */
+.menu-toggle {
+    display: flex !important;
+}
+.nav-links {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 100vw;
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    background: linear-gradient(135deg, #f3f3f3 60%, goldenrod 100%);
+    box-shadow: 0 8px 32px rgba(0,97,245,0.13);
+    z-index: 500 !important;
+    transition: max-height 0.5s cubic-bezier(.68,-0.55,.27,1.55), background 0.3s;
+    pointer-events: none;
+}
+.menu-toggle:hover + .nav-links,
+.menu-toggle:focus + .nav-links,
+.nav-links:hover,
+.nav-links:focus-within {
+    max-height: 400px;
+    padding-bottom: 20px;
+    background: linear-gradient(135deg, #F3F3F3 50%, goldenrod 100%);
+    pointer-events: auto;
+}
+.nav-links li {
+    margin: 1px 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+.menu-toggle:hover + .nav-links li,
+.menu-toggle:focus + .nav-links li,
+.nav-links:hover li,
+.nav-links:focus-within li {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+
+nav ul li a {
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 22.5px;
+    color: forestgreen;
+    font-family: "Inter", sans-serif;
+    transition: color 0.2s, background 0.2s, padding 0.2s;
+    border-radius: 8px;
+    padding: 6px 6px;
+}
+.nav-links li a:hover, .nav-links li a:focus {
+    color: #fff;
+    background: linear-gradient(90deg, forestgreen 60%, goldenrod 100%);
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0,97,245,0.10);
+}
+
+
+
+@media (max-width: 900px) {
+    .menu-toggle {
+    display: flex;
+    }
+    .nav-links {
+        position: absolute;
+        top: 100px;
+        right: 0;
+        width: 100vw;
+        max-height: 0;
+        overflow: hidden;
+        flex-direction: column;
+        background: linear-gradient(135deg, #f3f3f3 60%, #92B4FA 100%);
+        box-shadow: 0 8px 32px rgba(0,97,245,0.13);
+        z-index: 1000;
+        transition: max-height 0.5s cubic-bezier(.68,-0.55,.27,1.55), background 0.3s;
+    }
+    .nav-links.open {
+        max-height: 300px;
+        padding-bottom: 20px;
+        background: linear-gradient(135deg, #e0e7ff 60%, #0061F5 100%);
+    }
+    .nav-links li {
+        margin: 18px 0;
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: navFadeIn 0.5s forwards;
+        animation-delay: 0.1s;
+    }
+    .nav-links.open li {
+        opacity: 1;
+        transform: translateY(0);
+        animation: navFadeIn 0.5s forwards;
+    }
+    @keyframes navFadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
+
+
+h4 {
+    font-family: "Libre Franklin", sans-serif;
+    font-size: 5rem;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: transparent;
+    letter-spacing: 4px;
+    background: linear-gradient(8deg, rgba(34, 139, 34, 1) 0%, rgba(34, 139, 34, 1) 41%, rgba(218, 165, 32, 1) 100% );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    text-align: center;
+}
+
+h4:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    height: 8px;
+    width: 80%;
+    border-radius: 8%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+h4 span {
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #eeee;
+    animation: anim 5s linear infinite;
+}
+
+button {
+    width: 200px;
+    height: 56px;
+    top: 564px;
+    left: 190;
+    gap: 0px;
+    border-radius: 55px;
+    opacity: 0px;
+    background-color: #458ff6;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 700px;
+    line-height: 20px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    margin-top: 45px;
+    color: #fff;
+}
+
+@keyframes anim {
+    95%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        left: 88%;
+    }
+}
+
+#seccion1 {
+    display: flex;
+    justify-content: space-between;
+    background-image: url(./img.svg/Recurso\ 3_1.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center left;
+    
+}
+
+#servicios {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    )
+    ,url(./img.svg/Recurso\ 2.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin-top: 150px;
+    padding: 30px 0px 30px 0px;
+}
+
+#SS {
+    min-height: 350px;
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+    margin-top: 250px;
+}
+
+.elegirnos {
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url(./img.svg/Recurso\ 5_1.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center left;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
+    padding: 40px 32px 32px 32px;
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.acercadenosotros h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.nosotros {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    width: 100%;
+}
+
+.nosotros li {
+    background: linear-gradient(120deg, #e3eafc 0%, #f9f9f9 100%);
+    border-radius: 18px;
+    box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.08);
+    padding: 60px 22px 22px 22px;
+    flex: 1 1 0;
+    min-width: 220px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-size: 1.08rem;
+    color: #222;
+    position: relative;
+}
+
+.nosotros li:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    background: linear-gradient(120deg, #d1eaff 0%, #f9f9f9 100%);
+}
+
+.nosotros i {
+    font-size: 2.2rem;
+    color: #1976d2;
+    margin-bottom: 60px;
+    background: #e3eafc;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.10);
+    display: inline-block;
+}
+
+@media (max-width: 900px) {
+    .nosotros {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    .nosotros li {
+        max-width: 100%;
+    }
+    .elegirnos {
+        padding: 28px 10px 18px 10px;
+    }
+}
+
+#SS i {
+    height: 30px;
+    font-size: 4.8rem;
+    color: #0061F5;
+}
+
+#SS h2{
+    font-family: "Libre Franklin", sans-serif;
+    font-size: 3rem;
+    font-weight: 700px;
+    width: 1219px;
+    line-height: 56px;
+    text-align: center;
+}
+
+
+#SS ol li{
+    width: 445px;
+    margin-right: 109px;
+    font-size: 18px;
+    font-weight: 100px;
+    text-align: justify;
+    font-family: "Inter", sans-serif;
+    margin-top: 50px;
+}
+
+#blog {
+    color: #fff;
+    text-align: center;
+    margin-top: 200px;
+    
+}
+
+#blog .caja3{
+    color: black;
+    font-size: 3rem;
+    font-family: "Libre Franklin", sans-serif;;
+}
+
+#contactos{
+    margin-top: 50px;
+    padding: 50px 12px; 
+}
+
+.nosotros{
+    display: flex;
+    color: #eeee;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.elegirnos{
+    font-family: "Inter", sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.areas{
+    font-family: "Libre Franklin", sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 100px 12px 36px;
+    margin: auto;
+    margin-bottom: 64px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.caja-parrafo {
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    text-align: center;
+    width: 70%;
+    text-align: justify;
+    margin: 20px auto 10px auto;
+}
+
+.contenedor5{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 500px;
+    height: 500px;
+    border: 1px;
+    padding: 1.7rem 0.7rem;
+    margin-bottom: 30px;
+}
+
+.contenedor5 .datos{
+    width: 285px;
+    height: 285px;
+    background-color: #F3F3F3;    
+    border: 1px solid #ccc;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+}
+
+.datos div i{
+    font-size: 3.8rem;
+    margin-top: 20px;
+    padding: 3% 0%;
+    color: rgba(0,97,245,1);
+}
+
+.global{
+    margin-left: 440px;
+    gap: 0px;
+    text-align: center;
+    height: 570px;
+    width: 40%;
+}
+
+
+.contenedor4 .box{
+    padding: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position: center center;
+    margin: 22px;
+    border-radius: 15px;
+    width: 350px;
+    height: 450px;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+}
+
+.contenedor4{
+    display: flex;
+    justify-content:center;
+    margin-top: 60px;
+}
+
+.box{
+    background-color: rgba(#0061F5, #92B4FA, #001445, 0.5);
+    box-shadow:  5px 5px 10px rgba(0,0,0,0.5) ;
+}
+
+.box h5{
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-family: "Inter", sans-serif;
+}
+
+
+.contenedor4 .box:first-child{
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    )
+    ,url(img.svg/Recurso\ 2.svg);
+}
+
+.contenedor4 .box:nth-child(2){
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    )
+    ,url(./img.svg/Recurso\ 3.svg);
+}
+
+
+.contenedor4  .box:nth-child(3){
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    )
+    ,url(./img.svg/Recurso\ 5_1.svg)
+}
+
+.contenedor4 button{
+    background-color: #1c2332;
+    font-family: "Inter", sans-serif;
+    font-size: 18px; 
+    position: sticky;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 30px;
+    margin-top: 80px;
+}
+
+.card{
+    height: 500px;
+    width: 370px;
+    background-color: forestgreen;
+    padding: 3% 5%;
+    border: 0.2px solid rgba(114, 226, 174, 0.2);
+    border-radius: 8px;
+    transition: .6s;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+.card:after{
+    content: "";
+    position: absolute;
+    top: 150%;
+    left: -200px;
+    width: 120%;
+    transform: rotate(50deg);
+    background-color: #FDFDFD;
+    height: 18px;
+    filter: blur(30px);
+    opacity: 0.5;
+    transition: 1s;
+}
+
+.card:hover:after{
+    width: 225%;
+    top: -100%;
+}
+
+.card i{
+    color: goldenrod;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 4.8rem;
+}
+
+.card h5{
+    font-family: "Libre Franklin", sans-serif;
+    color: #eeee;
+    font-size: 1.5rem;
+    font-weight: 700;
+    align-items: center;
+    text-align: center;
+}
+
+.card p{
+    text-align: justify;
+    width: 100%;
+    margin: 12px 0;
+    color: rgba(225, 225, 225, 0.6);
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+}
+
+.card:hover{
+    background-color: transparent;
+    transform: translateY(-8px);
+    border-color: #F3F3F3;
+}
+
+.card:hover i{
+    color: #F3F3F3;
+}
+
+.contitulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#areas span {
+    display: flex;
+    justify-content: center;
+}
+
+.caja {
+    background-color: #FDFDFD;
+    width: 340px;
+    height: 300px;
+    border-radius: 22px;
+    padding: 8% 5% 5% 8%;
+    border: 0.2px solid forestgreen;
+    transition: .6s;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    margin: 20px -190px;
+    font-size: 4.8rem;
+    background-color: rgba(goldenrod,  forestgreen, #FDFDFD, 0.5);
+    box-shadow:  5px 5px 10px rgba(0,0,0,0.5) ;
+}
+
+.caja:after{
+    content: "";
+    position: absolute;
+    top: 150%;
+    left: -200px;
+    width: 120%;
+    transform: rotate(50deg);
+    background-color:  goldenrod;
+    height: 18px;
+    filter: blur(30px);
+    opacity: 0.5;
+    transition: 1s;
+}
+
+.caja:hover:after{
+    width: 225%;
+    top: -100%;
+
+}
+
+
+.caja h3{
+    font-family: "Libre Franklin", sans-serif;
+    font-size: 1.8rem;
+    padding: 10px 0;
+    font-weight: 700px;
+    letter-spacing: 1px;
+    
+}
+
+.caja p{
+    text-align:left;
+    width: 100%;
+    margin: 12px 0;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+}
+
+
+.caja:hover{
+    background-color: transparent;
+    transform: translateY(-8px);
+    border-color: rgba(11, 106, 250, 0.6);
+}
+
+
+.contenedor2 { 
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 0px;
+    margin-left: 550px;
+}
+
+.contenedor2 div i {
+    width: 91.98px;
+    height: 80px;
+    color: goldenrod;
+}
+
+.contenedor2 div {
+    display: flex;
+    flex-direction: column;
+}
+
+.cards{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+nav ul li a:hover{
+    font-weight: 700;
+    font-size: 20px;
+}
+
+
+.articulo1 {
+    width: 473px;
+    height: 508px;
+    margin-left: 190px;
+    margin-top: 50px;
+    margin-right: 109px;
+    border-radius: 55px solid forestgreen;
+    border-radius: 8%;
+    background-color: forestgreen;
+}
+
+.articulo1 h1 {
+    font-family: "Libre Franklin", sans-serif;
+    font-size: 5rem;
+    font-weight: 700px;
+    text-align: center;
+    color: #F3F3F3;
+    initial-letter: 0px;
+}
+
+.articulo1 .vision {
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 300px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #F3F3F3;
+    padding: 10px 40px 0px 40px;
+}
+
+.subtitulo{
+    background-color: goldenrod;
+    color:#222;
+    font-family: "Libre Franklin", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700px;
+    text-align: center;
+    border-radius: 15px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.articulo2 {
+    width: 693px;
+    height: 598px;
+    top: 100px;
+    left: 744;
+    gap: 0px;
+    opacity: 0px;
+    margin-top: 1px;
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+.foot{
+    background-color:  goldenrod;
+    margin-top: 120px;
+    width: 1580px;
+    height: 320px;
+    
+}
+
+.logo-footer {
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.foot  li a{
+    color: #eeee;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    font-size: 18px;
+    font-family: "Inter", sans-serif;
+    padding: 5px;
+}
+
+
+

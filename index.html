@@ -3,9 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./index.css">
+    <title>DISFRUTAS</title>
 </head>
 <body>
+    <header>
+        <img src="./img.svg/logo.svg" alt="Logo DISFRUTAS" id="logo">
+        <nav id="navbar">
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <img src="./img.svg/logo.svg" class="isotipo-menu" style="width:22px;height:22px;margin-right:7px;vertical-align:middle;">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-links">
+                <li> <a href="#SS"><span class="es">INICIO</span><span class="en" style="display:none">HOME</span></a></li>
+                <li> <a href="#areas"><span class="es">NOSOTROS</span><span class="en" style="display:none">ABOUT US</span></a></li>
+                <li> <a href="#servicios"><span class="es">SERVICIOS</span><span class="en" style="display:none">SERVICES</span></a></li>
+                <li> <a href="#blog"><span class="es">CONTACTANOS</span><span class="en" style="display:none">CONTACT</span></a></li>
+            </ul>
+        </nav>
+        <div id="lang-switch" style="display:flex;gap:8px;align-items:center;margin-left:24px;">
+            <button id="btn-es" aria-label="Español" style="background:goldenrod;color:#222;border:none;padding:6px 16px;border-radius:8px;font-weight:bold;cursor:pointer;">ES</button>
+            <button id="btn-en" aria-label="English" style="background:#F3F3F3;color:forestgreen;border:1px solid goldenrod;padding:6px 16px;border-radius:8px;font-weight:bold;cursor:pointer;">EN</button>
+        </div>
+
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+    });
+</script>
+</header>
+
+<main>
+    <section id="seccion1">
+        <article class="articulo2">
+            <img src="./img.svg/Recurso 4.svg" alt="">
+        </article>
+        <article class="articulo1">
+            <h1>DIS FRUTAS</h1>
+            <p class="subtitulo"><span class="es">EL SABOR PURO DE LA NATURALEZA</span><span class="en" style="display:none">THE PURE FLAVOR OF NATURE</span></p>
+            <p class="vision">
+                <span class="es"><b>Visión</b><br>Nos proponemos transformar la industria agrícola, promoviendo prácticas sostenibles y responsables que aseguren el bienestar de las comunidades agrícolas y la preservación del medio ambiente.</span>
+                <span class="en" style="display:none"><b>Vision</b><br>We aim to transform the agricultural industry by promoting sustainable and responsible practices that ensure the well-being of farming communities and the preservation of the environment.</span>
+            </p>
+        </article>
+    </section>
     
+    <section id="SS">
+        <div class="elegirnos">
+            <div class="acercadenosotros">
+                <h2><span class="es">¿Por qué elegirnos?</span><span class="en" style="display:none">Why choose us?</span></h2>
+            </div>
+            <ol class="nosotros">
+                <li>
+                    <i class="fa-solid fa-lemon"></i>
+                    <div class="texto-razon">
+                        <strong><span class="es">Frescura Garantizada</span><span class="en" style="display:none">Guaranteed Freshness</span></strong><br>
+                        <p><span class="es">Nuestro limón Tahití es recolectado en su punto óptimo de maduración, asegurando una frescura y sabor inigualables.</span><span class="en" style="display:none">Our Tahiti lime is harvested at its optimal ripeness, ensuring unmatched freshness and flavor.</span></p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fa-solid fa-pen-ruler"></i>
+                    <div class="texto-razon">
+                        <strong><span class="es">Proceso Riguroso</span><span class="en" style="display:none">Rigorous Process</span></strong><br>
+                        <p><span class="es">Implementamos las mejores prácticas agrícolas y de manejo postcosecha para garantizar que cada limón que llega a ti cumple con los más altos estándares de calidad</span><span class="en" style="display:none">We implement the best agricultural and post-harvest practices to ensure that every lime you receive meets the highest quality standards.</span></p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    <div class="texto-razon">
+                        <strong><span class="es">Compromiso con la Excelencia</span><span class="en" style="display:none">Commitment to Excellence</span></strong><br>
+                        <p><span class="es">Productores Capacitados: Trabajamos directamente con agricultores capacitados y comprometidos, quienes utilizan métodos sostenibles y responsables.</span><span class="en" style="display:none">Trained Producers: We work directly with skilled and committed farmers who use sustainable and responsible methods.</span></p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section id="areas">
+        <article> 
+            <div class="areas"><span class="es">NUESTRO VALOR</span><span class="en" style="display:none">OUR VALUE</span></div>
+            <span> ______ </span>
+            <p class="caja-parrafo"><span class="es">Nuestro objetivo es establecer relaciones duraderas y de confianza con nuestros clientes, ofreciendo productos frescos y saludables que contribuyan al bienestar de los consumidores en todo el mundo.</span><span class="en" style="display:none">Our goal is to build lasting and trustworthy relationships with our clients, offering fresh and healthy products that contribute to the well-being of consumers worldwide.</span></p>
+        </article>
+        
+        <article class="contenedor2"> 
+            <div class="caja">
+                <div><i class="fa-solid fa-list"></i></div>
+                <h3>01.</h3>
+                <p class="caja-parrafo"><span class="es">Calidad Inigualable</span><span class="en" style="display:none">Unmatched Quality</span></p>
+            </div>
+            <div class="caja">
+                <div><i class="fa-solid fa-chart-line"></i></div>
+                <h3>02.</h3>
+                <p class="caja-parrafo"><span class="es">Excelencia en Comercialización</span><span class="en" style="display:none">Excellence in Marketing</span></p>
+            </div>
+            <div class="caja">
+                <div><i class="fa-solid fa-tachometer-alt"></i></div>
+                <h3>03.</h3>
+                <p class="caja-parrafo"><span class="es">Salud y Sabor en Cada Bocado</span><span class="en" style="display:none">Health and Flavor in Every Bite</span></p>
+            </div>
+            <div class="caja">
+                <div><i class="fa-solid fa-solar-panel"></i></div>
+                <h3>04.</h3>
+                <p class="caja-parrafo"><span class="es">Sostenibilidad y Responsabilidad Social</span><span class="en" style="display:none">Sustainability and Social Responsibility</span></p>
+            </div>
+        </article>
+    </section>
+
+
+    <section id="servicios">
+        <div class="service">
+            <div class="contitulo">
+                <h4><span class="es">NUESTROS PRODUCTOS Y SERVICIOS</span><span class="en" style="display:none">OUR PRODUCTS AND SERVICES</span> <span></span></h4>
+                <div class="cards">
+                    <div class="card">
+                        <i class="fa-brands fa-greater-than"></i>
+                        <h5><span class="es">PRODUCTOS FRESCOS</span><span class="en" style="display:none">FRESH PRODUCTS</span></h5>
+                        <p><span class="es">En un mundo donde la frescura es un lujo, en DISFRUTAS la consideramos una garantía. Nuestros limones Tahití son cultivados con dedicación y cuidado, capturando la esencia misma de la naturaleza en cada fruto. MINO A LA EXCELENCIA</span><span class="en" style="display:none">In a world where freshness is a luxury, at DISFRUTAS we consider it a guarantee. Our Tahiti limes are grown with dedication and care, capturing the very essence of nature in every fruit. COMMITTED TO EXCELLENCE</span></p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-leaf"></i>
+                        <h5><span class="es">PRODUCTOS ORGANICOS</span><span class="en" style="display:none">ORGANIC PRODUCTS</span></h5>
+                        <p><span class="es">En DISFRUTAS, la tierra es nuestra mayor aliada. Por eso, nos comprometemos a ofrecer productos orgánicos para el manejo de cultivos que respeten y cuiden nuestro entorno natural. Desde fertilizantes hasta pesticidas orgánicos, nuestras soluciones están diseñadas para promover la biodiversidad, proteger los ecosistemas y garantizar la calidad y pureza de nuestros cultivos.</span><span class="en" style="display:none">At DISFRUTAS, the earth is our greatest ally. That's why we are committed to offering organic products for crop management that respect and care for our natural environment. From fertilizers to organic pesticides, our solutions are designed to promote biodiversity, protect ecosystems, and ensure the quality and purity of our crops.</span></p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-drafting-compass"></i>
+                        <h5><span class="es">EXTENSION AGROPECUARIA</span><span class="en" style="display:none">AGRICULTURAL EXTENSION</span></h5>
+                        <p><span class="es">En DISFRUTAS, la agricultura es más que un negocio; es una vocación compartida. Nuestra extensión agropecuaria es el corazón de nuestra empresa, ofreciendo a nuestros productores el conocimiento y la asistencia necesarios para alcanzar su máximo potencial.</span><span class="en" style="display:none">At DISFRUTAS, agriculture is more than a business; it's a shared vocation. Our agricultural extension is the heart of our company, offering our producers the knowledge and assistance they need to reach their full potential.</span></p>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <section id="blog">
+        <article class="caja3">
+            <div class="areas"><span class="es">NUESTROS LOGROS</span><span class="en" style="display:none">OUR ACHIEVEMENTS</span></div>
+            <p class="caja-parrafo"><span class="es">En DISFRUTAS, nuestro mayor orgullo no es solo la calidad excepcional de nuestro limón Tahití, sino el viaje que compartimos con nuestros productores. Cada día, trabajamos mano a mano con ellos, brindándoles el conocimiento y las herramientas necesarias para no solo cultivar con excelencia, sino también para ser protagonistas en la comercialización de sus propios productos. Nuestra misión va más allá de simplemente vender limones; buscamos empoderar a nuestros agricultores, transformándolos en socios estratégicos y fundamentales en la cadena de valor. Les enseñamos a comprender el mercado, a valorar su trabajo y a tomar decisiones informadas que beneficien a sus familias y comunidades.</span><span class="en" style="display:none">At DISFRUTAS, our greatest pride is not only the exceptional quality of our Tahiti lime, but the journey we share with our producers. Every day, we work hand in hand with them, providing the knowledge and tools necessary not only to cultivate with excellence, but also to be protagonists in the marketing of their own products. Our mission goes beyond simply selling limes; we seek to empower our farmers, transforming them into strategic and fundamental partners in the value chain. We teach them to understand the market, to value their work, and to make informed decisions that benefit their families and communities.</span></p>
+        </article>
+
+        <article class="contenedor4">
+            <div class="box">
+                <h5><span class="es">Implementación de agrícolas sostenibles</span><span class="en" style="display:none">Implementation of sustainable agriculture</span></h5>
+                <button>+ Info</button>
+            </div>
+            <div class="box">
+                <h5><span class="es">Limones Tahití en continua mejora de calidad</span><span class="en" style="display:none">Tahiti limes in continuous quality improvement</span></h5>
+                <button>+ Info</button>
+            </div>
+            <div class="box">
+                <h5><span class="es">Responsabilidad ECOLOGICA y AMBIENTAL</span><span class="en" style="display:none">ECOLOGICAL and ENVIRONMENTAL Responsibility</span></h5>
+                <button>+ Info</button>
+            </div>
+        </article>
+        
+    </section>
+
+</main>
+    <footer>
+        <section id="contactos">
+            <article>
+                <div class="areas"><span class="es">CONTACTANOS</span><span class="en" style="display:none">CONTACT US</span></div>
+                <p class="caja-parrafo"><span class="es">Somos distribuidores de productos agrícolas y estamos aquí para ayudarte. Contáctanos para más información.</span><span class="en" style="display:none">We are distributors of agricultural products and we are here to help you. Contact us for more information.</span></p>
+            </article>
+            <div class="global">
+                <article class="contenedor5">
+                    <div class="datos">
+                    <div><i class="fa-solid fa-location-dot"></i></div>
+                    <h6><span class="es">Dirección</span><span class="en" style="display:none">Address</span></h6>
+                    <p><span class="es">Carrera ---Calle---- <br>Cali, Código Postal.</span><span class="en" style="display:none">Street --- <br>Cali, Postal Code.</span></p>
+                    </div>
+                    
+                    <div class="datos">
+                    <div><i class="fa-solid fa-phone-square"></i></div>
+                    <h6><span class="es">Contactos</span><span class="en" style="display:none">Contacts</span></h6>
+                    <p><span class="es">(+57)</span><span class="en" style="display:none">(+57)</span></p>
+                    </div>
+                
+                    <div class="datos">
+                    <div><i class="fa-solid fa-at"></i></div>
+                    <h6><span class="es">E-mail</span><span class="en" style="display:none">E-mail</span></h6>
+                    <p>@gmail.com</p>
+                    </div>
+                
+                    <div class="datos">
+                    <div><i class="fa-solid fa-clock-rotate-left"></i></div>
+                    <h6><span class="es">Horario de Atención</span><span class="en" style="display:none">Business Hours</span></h6>
+                    <p><span class="es">Lunes a Viernes <br>8:00am a 12:00pm <br>2:00pm a 5:00pm.</span><span class="en" style="display:none">Monday to Friday <br>8:00am to 12:00pm <br>2:00pm to 5:00pm.</span></p>
+                    </div>
+                </article>
+            </div>
+        </section >
+        <article class="final">
+            <div class="foot">
+                <img src="./img.svg/logo.svg" alt="" class="logo-footer">
+                <ul class="list">
+                    <li> <a href="#"><span class="es">Nosotros</span><span class="en" style="display:none">About Us</span></a></li>
+                    <li> <a href="#"><span class="es">Política de privacidad</span><span class="en" style="display:none">Privacy Policy</span></a></li>
+                    <li> <a href="#"><span class="es">Política de Datos</span><span class="en" style="display:none">Data Policy</span></a></li>
+                </ul>
+            </div>
+        </article>
+
+    </footer> 
+    <script>
+    // Script para alternar idiomas
+    const btnEs = document.getElementById('btn-es');
+    const btnEn = document.getElementById('btn-en');
+    function setLang(lang) {
+        document.querySelectorAll('.es').forEach(e => e.style.display = lang === 'es' ? '' : 'none');
+        document.querySelectorAll('.en').forEach(e => e.style.display = lang === 'en' ? '' : 'none');
+        btnEs.style.background = lang === 'es' ? 'goldenrod' : '#F3F3F3';
+        btnEs.style.color = lang === 'es' ? '#222' : 'forestgreen';
+        btnEn.style.background = lang === 'en' ? 'goldenrod' : '#F3F3F3';
+        btnEn.style.color = lang === 'en' ? '#222' : 'forestgreen';
+    }
+    btnEs.addEventListener('click', () => setLang('es'));
+    btnEn.addEventListener('click', () => setLang('en'));
+    // Idioma por defecto
+    setLang('es');
+    </script>
 </body>
+
 </html>
